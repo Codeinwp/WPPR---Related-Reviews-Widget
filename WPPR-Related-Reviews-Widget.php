@@ -33,6 +33,8 @@ class wppr_related_reviews extends WP_Widget {
 
 		$widget_ops = array('classname' => 'wppr_related_reviews_widget', 'description' => __($this->widget_desc, $this->text_domain));
 		parent::WP_Widget($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
+
+		add_action('admin_notices', array($this, 'widget_admin_notice'));
 	}
 
 	// widget form creation
@@ -152,6 +154,18 @@ class wppr_related_reviews extends WP_Widget {
 			</ul>
 		<?php wp_reset_postdata();
 		endif;
+	}
+
+	// notice when the plugin is activated
+	function widget_admin_notice() {
+		if(isset($_GET['activate']) && $_GET['activate'] == true){
+			$url_widget = admin_url( 'widgets.php');
+		    ?>
+		    <div class="updated">
+		        <p><?php printf(__( 'Great, now go under <a href="%s">Appearance &#8250 Widgets</a> and place your widget in your sidebar.', $this->text_domain), $url_widget); ?></p>
+		    </div>
+		    <?php
+		}
 	}
 }
 
