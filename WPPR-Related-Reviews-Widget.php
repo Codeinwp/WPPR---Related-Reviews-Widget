@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WPPR - Related Reviews
-Description: The highest rated and most complete review plugin, now with rich snippets support. Easily turn your basic posts into in-depth reviews.
+Description: Earn more visitors, displaying related reviews for each product.
 Version: 1.0.0
 Author: Themeisle
 Author URI:  https://themeisle.com/
@@ -26,7 +26,7 @@ class wppr_related_reviews extends WP_Widget {
 	// Controller
 	function __construct() {
 		$this->widget_name   = 'Related reviews';
-		$this->widget_desc   = 'WPPR - Related Reviews widget';
+		$this->widget_desc   = 'Earn more visitors, displaying related reviews for each product.';
 		$this->plugin_slug   = 'WPPR-Related-Reviews-Widget';
 		$this->text_domain 	 = 'cwppose';
 		$this->number_posts  = 5;
