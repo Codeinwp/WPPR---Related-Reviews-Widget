@@ -142,9 +142,9 @@ class wppr_related_reviews extends WP_Widget {
 							if($show_thumb){
 								$product_image = get_post_meta($post->ID, "cwp_rev_product_image", true);
 								if ($product_image) {
-									echo '<img src="'.$product_image.'" alt="" />';
+									echo '<img src="'.$product_image.'" alt="'.get_the_title().'" />';
 								}elseif (has_post_thumbnail()) {
-									echo wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail'); 
+									echo wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', 0, array('alt' => get_the_title())); 
 								}
 							}
 							// show title
