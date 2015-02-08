@@ -30,8 +30,8 @@ class wppr_related_reviews extends WP_Widget {
 		$this->plugin_slug   = 'WPPR-Related-Reviews-Widget';
 		$this->text_domain 	 = 'cwppose';
 		$this->number_posts  = 5;
-
-		$widget_ops = array('classname' => 'wppr_related_reviews_widget', 'description' => __($this->widget_desc, $this->text_domain));
+		
+		$widget_ops = array('classname' => 'widget_cwp_latest_products_widget', 'description' => __($this->widget_desc, $this->text_domain));
 		parent::WP_Widget($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
 
 		add_action('admin_notices', array($this, 'widget_admin_notice'));
@@ -136,20 +136,19 @@ class wppr_related_reviews extends WP_Widget {
 		if ($reviews->have_posts()): ?>
 			<ul>
 				<?php while ($reviews->have_posts()) : $reviews->the_post(); ?>
-					<li>
-						<a href="<?php the_permalink(); ?>"><?php 
+					<li class="cwp-popular-review cwp_top_posts_widget_<?php the_ID(); ?>">
+						<?php 
 							// show thumb
 							if($show_thumb){
 								$product_image = get_post_meta($post->ID, "cwp_rev_product_image", true);
 								if ($product_image) {
-									echo '<img src="'.$product_image.'" alt="'.get_the_title().'" />';
+									echo '<img src="'.$product_image.'" alt="'.get_the_title().'" class="cwp_rev_image"/>';
 								}elseif (has_post_thumbnail()) {
-									echo wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', 0, array('alt' => get_the_title())); 
+									echo wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', 0, array('alt' => get_the_title(), 'class' => 'cwp_rev_image')); 
 								}
 							}
 							// show title
-							the_title();
-						?></a>
+							?><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</li>
 				<?php endwhile; ?>
 			</ul>
