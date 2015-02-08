@@ -35,6 +35,7 @@ class wppr_related_reviews extends WP_Widget {
 		parent::WP_Widget($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
 
 		add_action('admin_notices', array($this, 'widget_admin_notice'));
+		add_action('admin_notices', array($this, 'is_parent_plugin' ) );
 	}
 
 	// widget form creation
@@ -165,6 +166,14 @@ class wppr_related_reviews extends WP_Widget {
 		        <p><?php printf(__( 'Great, now go under <a href="%s">Appearance &#8250 Widgets</a> and place your widget in your sidebar.', $this->text_domain), $url_widget); ?></p>
 		    </div>
 		    <?php
+		}
+	}
+
+	function is_parent_plugin() {
+		if(!function_exists('cwppos_calc_overall_rating')) {
+			echo '<div id="message" class="error">
+				<p><strong>This plugin requires you to install the WP Product Review plugin, <a href="https://themeisle.com/plugins/wp-product-review-lite/">download it from here</a>.</strong></p>
+			</div>';
 		}
 	}
 }
