@@ -5,7 +5,7 @@ Description: Earn more visitors, displaying related reviews for each product.
 Version: 1.0.0
 Author: Themeisle
 Author URI:  https://themeisle.com/
-Plugin URI: https://themeisle.com/
+Plugin URI: https://themeisle.com/wppr-related-reviews/
 Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: trunk
