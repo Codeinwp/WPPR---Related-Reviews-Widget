@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPPR - Related Reviews
 Description: Earn more visitors, displaying related reviews for each product.
-Version: 1.0.4
+Version: 1.0.5
 Author: Themeisle
 Author URI:  https://themeisle.com/
 Plugin URI: https://themeisle.com/wppr-related-reviews/
