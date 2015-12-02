@@ -1,5 +1,15 @@
 
 
+### 1.0.5 - 02/12/2015
+
+ Changes: 
+
+
+ * Merge pull request #14 from Codeinwp/production
+
+!!! update
+
+
 ### 1.0.4 - 03/04/2015
 
  Changes: 
