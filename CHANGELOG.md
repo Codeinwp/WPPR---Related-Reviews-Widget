@@ -1,5 +1,13 @@
 
 
+### 1.0.9 - 16/02/2016
+
+ Changes: 
+
+
+ * fix for deprecated constructor
+
+
 ### 1.0.5 - 02/12/2015
 
  Changes: 
