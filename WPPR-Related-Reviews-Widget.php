@@ -32,7 +32,7 @@ class wppr_related_reviews extends WP_Widget {
 		$this->number_posts  = 5;
 		
 		$widget_ops = array('classname' => 'widget_cwp_latest_products_widget', 'description' => __($this->widget_desc, $this->text_domain));
-		parent::WP_Widget($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
+		parent::__construct($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
 
 		add_action('admin_notices', array($this, 'widget_admin_notice'));
 		add_action('admin_notices', array($this, 'is_parent_plugin' ) );
