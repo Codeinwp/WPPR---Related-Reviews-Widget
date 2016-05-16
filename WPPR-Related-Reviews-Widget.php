@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPPR - Related Reviews
 Description: Earn more visitors, displaying related reviews for each product.
-Version: 1.0.9
+Version: 1.2.0
 Author: Themeisle
 Author URI:  https://themeisle.com/
 Plugin URI: https://themeisle.com/wppr-related-reviews/
@@ -13,6 +13,9 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: cwppose
 */
+
+define( 'WPPR_RELATED_REVIEWS_VERSION' ,'1.2.0');
+
 
 class wppr_related_reviews extends WP_Widget {
 	var $widget_name; 	// Widget name
