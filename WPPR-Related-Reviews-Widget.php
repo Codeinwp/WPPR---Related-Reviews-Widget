@@ -2,19 +2,20 @@
 /*
 Plugin Name: WPPR - Related Reviews
 Description: Earn more visitors, displaying related reviews for each product.
-Version: 1.2.0
+Version: 1.2.1
 Author: Themeisle
 Author URI:  https://themeisle.com/
 Plugin URI: https://themeisle.com/wppr-related-reviews/
 Requires at least: 3.5
-Tested up to: 4.0
+Tested up to: 4.5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: cwppose
 */
 
-define( 'WPPR_RELATED_REVIEWS_VERSION' ,'1.2.0');
+define( 'WPPR_RELATED_REVIEWS_VERSION' ,'1.2.1');
+define("WPPR_RELATED_REVIEWS_PATH", realpath(dirname(__FILE__)));
 
 
 class wppr_related_reviews extends WP_Widget {
@@ -38,7 +39,6 @@ class wppr_related_reviews extends WP_Widget {
 		parent::__construct($this->plugin_slug, __($this->widget_name, $this->text_domain), $widget_ops);
 
 		add_action('admin_notices', array($this, 'widget_admin_notice'));
-		add_action('admin_notices', array($this, 'is_parent_plugin' ) );
 	}
 
 	// widget form creation
@@ -171,14 +171,15 @@ class wppr_related_reviews extends WP_Widget {
 		}
 	}
 
-	function is_parent_plugin() {
-		if(!function_exists('cwppos_calc_overall_rating')) {
-			echo '<div id="message" class="error">
-				<p><strong>This plugin requires you to install the WP Product Review plugin, <a href="https://themeisle.com/plugins/wp-product-review-lite/">download it from here</a>.</strong></p>
-			</div>';
-		}
-	}
 }
 
 // register widget
 add_action('widgets_init', create_function('', 'return register_widget("wppr_related_reviews");'));
+
+// Added by Ash/Upwork
+function wppr_rrw_load_dependencies(){
+    require_once WPPR_RELATED_REVIEWS_PATH . "/lib/dependencies/tgm-activation.php";
+}
+add_action('plugins_loaded', 'wppr_rrw_load_dependencies');
+// Added by Ash/Upwork
+
